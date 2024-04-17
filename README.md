@@ -6,9 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Create secure passwords that won’t be cracked any time soon. You can customize your password with upper-locase case, numbers, and symbols.
-
-Demo: https://www.atulhost.com/tools/password-generator
+Create secure passwords that won’t be cracked any time soon. You can customize your password with upper-locase case, numbers, and symbols. Demo: https://www.atulhost.com/tools/password-generator
 
 == Installation ==
 

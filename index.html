@@ -1,0 +1,50 @@
+<div>
+  <p>
+    <label for="length">Password Length:</label>
+    <input type="number" id="length" min="8" max="50" value="12">
+    <p style="font-size: var(--wp--preset--font-size--small);font-weight:700">Use minimum 8 to 12 digit password length for best security. Longer the password, harder it takes to crack. Do include upper-lower case, numbers, and symbols to make it impossible to crack. Nothing is being logged, be assured.</p>
+  </p>
+  <p>
+  <input type="checkbox" id="uppercase" checked>
+    <label for="uppercase">Include uppercase letters.</label>
+  </p>
+  <p>
+    <input type="checkbox" id="lowercase" checked>
+    <label for="lowercase">Include lowercase letters.</label>
+  </p>
+  <p>
+    <input type="checkbox" id="numbers" checked>
+    <label for="numbers">Include numbers.</label>
+  </p>
+  <p>
+    <input type="checkbox" id="symbols" checked>
+    <label for="symbols">Include symbols.</label>
+  </p>
+  <p><button class="wp-element-button" onclick="generatePassword()">Generate Password</button></p>
+  <p><span id="password" style="background:#F5F3F0;font-size: var(--wp--preset--font-size--large)"></span></p>
+</div>
+<script>
+  function generatePassword() {
+    const length = document.getElementById('length').value;
+    const uppercase = document.getElementById('uppercase').checked;
+    const lowercase = document.getElementById('lowercase').checked;
+    const numbers = document.getElementById('numbers').checked;
+    const symbols = document.getElementById('symbols').checked;
+    const charset = getCharset(uppercase, lowercase, numbers, symbols);
+    let password = '';
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      password += charset[randomIndex];
+    }
+    document.getElementById('password').innerText = password;
+  }
+  function getCharset(uppercase, lowercase, numbers, symbols) {
+    let charset = '';
+    if (uppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    if (lowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
+    if (numbers) charset += '0123456789';
+    if (symbols) charset += '!@#$%^&*()_+[]{}|;:,.<>?';
+    return charset;
+  }
+</script>
+<p>Source: <a href="https://www.atulhost.com/tools/password-generator">AtulHost's Password Generator Tool</a></p>
